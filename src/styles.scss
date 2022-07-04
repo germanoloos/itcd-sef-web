@@ -1,0 +1,88 @@
+@use "@angular/material" as mat;
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/theming";
+@import "./app/core/scss/variables.scss";
+@import "./app/core/components/loading/loading.component.scss";
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$itcd-sef-web-primary: mat.define-palette($primary-palette-light);
+$itcd-sef-web-accent: mat.define-palette($accent-palette-light);
+$itcd-sef-web-warn: mat.define-palette($warn-palette-light);
+
+$itcd-sef-web-primary-dark: mat.define-palette($primary-palette-dark);
+$itcd-sef-web-accent-dark: mat.define-palette($accent-palette-dark);
+$itcd-sef-web-warn-dark: mat.define-palette($warn-palette-dark);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$itcd-sef-web-light-theme: mat.define-light-theme(
+    $itcd-sef-web-primary,
+    $itcd-sef-web-accent,
+    $itcd-sef-web-warn
+);
+
+$itcd-sef-web-dark-theme: mat.define-dark-theme(
+    $itcd-sef-web-primary-dark,
+    $itcd-sef-web-accent-dark,
+    $itcd-sef-web-warn-dark
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($itcd-sef-web-light-theme);
+
+// @include mat.core-theme($dark-theme);
+// @include mat.button-theme($dark-theme);
+
+.dark-mode {
+  @include mat.all-component-themes($itcd-sef-web-dark-theme);
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#app-itcd {
+  background-color: $background-color-light !important;
+  &.dark-mode{
+    background-color: $background-color-dark !important;
+  }
+}
+
+a:link {
+    text-decoration: none;
+    color: white !important;
+}
+
+// .mat-form-field-appearance-outline .mat-form-field-outline {
+//     background: white;
+//     border-radius: 10px;
+// }
+// .mat-form-field-appearance-outline .mat-form-field-infix {
+//     padding: 0.3em 0 1em 0;
+// }
+
+// .mat-raised-button {
+//     border-radius: 10px !important;
+// }
+
+// .mat-form-field-outline-start {
+//     border-radius: 10px 0 0 10px !important;
+//     min-width: 28px !important;
+// }
+
+// .mat-form-field-outline-end {
+//     border-radius: 0 10px 10px 0 !important;
+// }
+

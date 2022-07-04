@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+   itcd-front:
+      image: harbor.fazenda.mg.gov.br/disteds_itcd/itcd-front:${VERSION}
+      deploy: 
+         replicas: 1
+      ports: 
+        - "80:80"
+        - "443:443"
+      volumes:
+         - ${PATH_ITCD_HOST}/front-end:/etc/nginx/certs

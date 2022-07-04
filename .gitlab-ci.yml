@@ -1,0 +1,60 @@
+image: docker:stable
+
+# Comentario
+stages:
+ - node
+ - build
+ - deploy 
+
+node-docker:
+  image: node:16.13-alpine
+  stage: node
+  tags:
+  - sw-docker 
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^feature-fontes/'
+  script:
+   - echo "VERSION=$(node -p "require('./package.json').version")" >> nodeVersion.env
+  artifacts:
+    reports:
+      dotenv: nodeVersion.env
+
+
+
+build-docker: 
+  stage: build
+  tags:
+  - sw-docker
+  dependencies:
+  - node-docker
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^feature-fontes/'
+  services:
+  - docker:19-dind
+  retry: 2 
+  before_script:
+  - docker info
+  - docker login harbor.fazenda.mg.gov.br -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  script:
+  - docker build -t harbor.fazenda.mg.gov.br/disteds_itcd/itcd-front:$VERSION .
+  - docker push harbor.fazenda.mg.gov.br/disteds_itcd/itcd-front:$VERSION
+
+
+deploy-project:
+  stage: deploy
+  tags:
+  - sw-docker 
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^feature-fontes/'
+  dependencies:
+  - node-docker
+  - build-docker
+  before_script:
+    - eval $(ssh-agent -s)
+    - printenv "SW_PRIVATE_KEY" | ssh-add -
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -t rsa 172.23.201.52 >> ~/.ssh/known_hosts
+  script:
+  - docker login harbor.fazenda.mg.gov.br -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  - export DOCKER_HOST=ssh://gitlab-runner@172.23.201.52
+  - docker stack deploy -c docker-compose.yml itcd-cm --with-registry-auth

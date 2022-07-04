@@ -1,0 +1,13 @@
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../core/scss/variables.scss";
+
+::ng-deep.dark-mode .mat-toolbar.header {
+  background-color: $background-color-header-light !important;
+  color: $text-header-light;
+}
+::ng-deep.mat-toolbar.header {
+  background-color: $background-color-header-dark !important;
+  color: $text-header-dark;
+  height: 75px;
+  @extend .px-2;
+}

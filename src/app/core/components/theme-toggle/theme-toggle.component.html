@@ -1,0 +1,4 @@
+<button mat-icon-button (click)="toggleControl()">
+  <mat-icon class="mb-1" svgIcon="moon_1" *ngIf="darkMode" title="Alterar para modo claro"></mat-icon>
+  <mat-icon *ngIf="!darkMode" aria-label="Alterar para modo escuro"> light_mode </mat-icon>
+</button>

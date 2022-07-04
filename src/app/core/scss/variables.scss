@@ -1,0 +1,239 @@
+// Light-theme
+$background-color-light: #ffffff;
+$text-color-light: #ffffff;
+
+$primary-color-light: #4d4d4d;
+$warn-color-light: #e60000;
+
+$accent-color-light: #19a6ff;
+
+$background-color-header-light: #e6e6e6;
+$background-color-subheader-light: #332E30;
+$text-header-light: #1a1a1a;
+$text-subheader-light: white;
+
+$background-color-subheader-light: #332e30;
+$text-subheader-light: #a3a5a7;
+
+$blue-light: #8eb5e6;
+
+$primary-palette-light: (
+    50: $primary-color-light,
+    100: $primary-color-light,
+    200: $primary-color-light,
+    300: $primary-color-light,
+    400: $primary-color-light,
+    500: $primary-color-light,
+    600: $primary-color-light,
+    700: $primary-color-light,
+    800: $primary-color-light,
+    900: $primary-color-light,
+    A100: $primary-color-light,
+    A200: $primary-color-light,
+    A400: $primary-color-light,
+    A700: $primary-color-light,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    ),
+);
+
+$accent-palette-light: (
+    50: $accent-color-light,
+    100: $accent-color-light,
+    200: $accent-color-light,
+    300: $accent-color-light,
+    400: $accent-color-light,
+    500: $accent-color-light,
+    600: $accent-color-light,
+    700: $accent-color-light,
+    800: $accent-color-light,
+    900: $accent-color-light,
+    A100: $accent-color-light,
+    A200: $accent-color-light,
+    A400: $accent-color-light,
+    A700: $accent-color-light,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    ),
+);
+
+$warn-palette-light: (
+    50: $warn-color-light,
+    100: $warn-color-light,
+    200: $warn-color-light,
+    300: $warn-color-light,
+    400: $warn-color-light,
+    500: $warn-color-light,
+    600: $warn-color-light,
+    700: $warn-color-light,
+    800: $warn-color-light,
+    900: $warn-color-light,
+    A100: $warn-color-light,
+    A200: $warn-color-light,
+    A400: $warn-color-light,
+    A700: $warn-color-light,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    ),
+);
+
+//
+// -------------- Dark-theme --------------
+//
+$background-color-dark: #1a1a1a;
+$text-color-dark: #1a1a1a;
+
+$primary-color-dark: #4d4d4d;
+$warn-color-dark: #e60000;
+
+$accent-color-dark: #0971b3;
+
+$background-color-header-dark: #332E30;
+$background-color-subheader-dark: #D9D9D9;
+$text-header-dark: #e6e6e6;
+$text-subheader-dark: #666666;
+
+$background-color-subheader-dark: #a3a5a7;
+$text-subheader-dark: #332e30;
+
+$blue-dark: #8eb5e6;
+
+$primary-palette-dark: (
+    50: $primary-color-dark,
+    100: $primary-color-dark,
+    200: $primary-color-dark,
+    300: $primary-color-dark,
+    400: $primary-color-dark,
+    500: $primary-color-dark,
+    600: $primary-color-dark,
+    700: $primary-color-dark,
+    800: $primary-color-dark,
+    900: $primary-color-dark,
+    A100: $primary-color-dark,
+    A200: $primary-color-dark,
+    A400: $primary-color-dark,
+    A700: $primary-color-dark,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    ),
+);
+
+
+
+$accent-palette-dark: (
+    50: $accent-color-dark,
+    100: $accent-color-dark,
+    200: $accent-color-dark,
+    300: $accent-color-dark,
+    400: $accent-color-dark,
+    500: $accent-color-dark,
+    600: $accent-color-dark,
+    700: $accent-color-dark,
+    800: $accent-color-dark,
+    900: $accent-color-dark,
+    A100: $accent-color-dark,
+    A200: $accent-color-dark,
+    A400: $accent-color-dark,
+    A700: $accent-color-dark,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    ),
+);
+
+$warn-palette-dark: (
+    50: $warn-color-dark,
+    100: $warn-color-dark,
+    200: $warn-color-dark,
+    300: $warn-color-dark,
+    400: $warn-color-dark,
+    500: $warn-color-dark,
+    600: $warn-color-dark,
+    700: $warn-color-dark,
+    800: $warn-color-dark,
+    900: $warn-color-dark,
+    A100: $warn-color-dark,
+    A200: $warn-color-dark,
+    A400: $warn-color-dark,
+    A700: $warn-color-dark,
+    contrast: (
+        50: white,
+        100: white,
+        200: white,
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: white,
+        A200: white,
+        A400: white,
+        A700: white,
+    ),
+);

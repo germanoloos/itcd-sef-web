@@ -1,0 +1,41 @@
+<app-loading [show]="loading"></app-loading>
+<div class="container">
+  <div class="row" style="height: 80vh">
+    <div class="col-md-12">
+      <div class="d-flex flex-row align-items-center h-100">
+        <div class="mx-auto">
+          <div class="signin-box">
+            <form [formGroup]="loginForm" class="p-3" (ngSubmit)="onSubmit()">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="user"/>
+                <mat-error *ngIf="loginForm.get('user')?.invalid"
+                >O campo de nome do usuário é obrigatório</mat-error
+                >
+              </mat-form-field>
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input [type]="inputType" matInput formControlName="password"/>
+                <mat-error *ngIf="loginForm.get('password')?.invalid"
+                  >O campo de senha é obrigatório</mat-error
+                >
+              </mat-form-field>
+              <button
+                mat-raised-button
+                color="primary"
+                class="w-100 mt-3 mb-3"
+                type="submit"
+              >
+                Entrar
+                <span
+                  *ngIf="loadingButton"
+                  class="spinner-border spinner-border-sm m-2"
+                ></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
