@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { environment } from 'src/environments/environment';
@@ -11,7 +12,7 @@ export class AuthenticationService {
 
   TOKEN_KEY = 'token';
 
-  constructor(private httpClient: HttpClient, private storageService: StorageService) { }
+  constructor(private httpClient: HttpClient, private storageService: StorageService, private router: Router) { }
 
   login(username: string, password: string): Observable<any> {
     return this.httpClient.post(`${environment.URL_LOGIN}/auth`, { username, password });
@@ -19,6 +20,7 @@ export class AuthenticationService {
 
   logout(): void {
     this.storageService.removeItem(this.TOKEN_KEY);
+    this.router.navigate(['/login']);
   }
 
   getToken(): string {

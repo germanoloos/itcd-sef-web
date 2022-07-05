@@ -6,7 +6,25 @@
           <img src="../assets/img/{{ logo }}.svg" />
         </a>
       </h1>
-      <app-theme-toggle></app-theme-toggle>
+      <div class="d-flex h-100 justify-content-center align-items-center">
+        <div class="welcome" *ngIf="isAuthenticated()">
+          Bem vindo, {{ getUserName() }}
+        </div>
+        <div
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          *ngIf="isAuthenticated()"
+        >
+          <mat-icon class="user-avatar">account_circle</mat-icon>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span>Sair</span>
+            </button>
+          </mat-menu>
+        </div>
+        <app-theme-toggle></app-theme-toggle>
+      </div>
     </div>
   </div>
 </mat-toolbar>

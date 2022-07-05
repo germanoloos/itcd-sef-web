@@ -12,8 +12,12 @@ export class HeaderComponent implements OnInit {
 
   logo: string = 'LogoSEF';
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService, private authenticationService: AuthenticationService) {
 
+  }
+
+  logout(): void {
+    this.authenticationService.logout();
   }
 
   ngOnInit(): void {
@@ -26,4 +30,11 @@ export class HeaderComponent implements OnInit {
     this.logo = !darkMode ? 'LogoSEF-dark' : 'LogoSEF';
   }
 
+  isAuthenticated(): boolean {
+    return this.authenticationService.isAuthenticated();
+  }
+
+  getUserName(): string {
+    return "Mario";
+  }
 }
