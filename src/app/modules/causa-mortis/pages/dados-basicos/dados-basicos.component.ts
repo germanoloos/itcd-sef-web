@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '@app/core/services/navigation.service';
 
 @Component({
   selector: 'app-dados-basicos',
@@ -8,10 +7,9 @@ import { NavigationService } from '@app/core/services/navigation.service';
 })
 export class DadosBasicosComponent implements OnInit {
 
-  constructor(private navigationService: NavigationService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.navigationService.navigationEvent.emit('Causa mortis');
   }
 
 }

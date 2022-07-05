@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '@app/core/services/navigation.service';
+import { TransmissionSevice } from '@app/core/services/transmissao.service';
 
 @Component({
   selector: 'app-nova-dbd',
@@ -8,10 +8,10 @@ import { NavigationService } from '@app/core/services/navigation.service';
 })
 export class NovaDbdComponent implements OnInit {
 
-  constructor(private navigationService:NavigationService) { }
+  constructor(private navigationService: TransmissionSevice) { }
 
   ngOnInit(): void {
-    this.navigationService.navigationEvent.emit('');
+    this.navigationService.tranmissionEvent.emit('');
   }
 
 }

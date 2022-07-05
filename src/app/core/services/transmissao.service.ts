@@ -3,14 +3,14 @@ import { EventEmitter, Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class NavigationService {
+export class TransmissionSevice {
 
-  navigationTitleEvent: EventEmitter<string> = new EventEmitter();
+  private navigationTitleEvent: EventEmitter<string> = new EventEmitter();
 
   constructor() {
   }
 
-  get navigationEvent(): EventEmitter<string> {
+  get tranmissionEvent(): EventEmitter<string> {
     return this.navigationTitleEvent;
   }
 

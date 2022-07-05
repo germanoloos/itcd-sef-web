@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '@app/core/services/navigation.service';
+import { TransmissionSevice } from '@app/core/services/transmissao.service';
 
 @Component({
   selector: 'app-subheader',
@@ -8,8 +8,8 @@ import { NavigationService } from '@app/core/services/navigation.service';
 })
 export class SubheaderComponent implements OnInit {
   subItem = "";
-  constructor(private navigationService: NavigationService) {
-    this.navigationService.navigationEvent.subscribe((title: string) => {
+  constructor(private navigationService: TransmissionSevice) {
+    this.navigationService.tranmissionEvent.subscribe((title: string) => {
       this.subItem = title;
     })
   }
