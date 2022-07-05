@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit, AfterViewChecked {
   inputType = 'password';
   loading = true;
   loadingButton = false;
+  loginWithUser = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
@@ -34,7 +36,7 @@ export class LoginComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      user: [null, Validators.required],
+      username: [null, Validators.required],
       password: [null, Validators.required]
     });
   }
@@ -42,13 +44,12 @@ export class LoginComponent implements OnInit, AfterViewChecked {
   onSubmit(): void {
     if (this.loginForm.invalid ) {
       this.loginForm.markAllAsTouched();
-      this.dialog.alert('This is on test overlay');
       return
     }
 
     this.loginForm.disable();
     this.loadingButton = true;
-    this.authenticationService.logon(
+    this.authenticationService.login(
       this.loginForm.get('user')?.value,
       this.loginForm.get('password')?.value).subscribe({
         next: (resp) => {

@@ -13,8 +13,8 @@ export class AuthenticationService {
 
   constructor(private httpClient: HttpClient, private storageService: StorageService) { }
 
-  logon(login: string, password: string): Observable<any> {
-    return this.httpClient.post(`${environment.API_URL}/auth/signin`, { login, password });
+  login(username: string, password: string): Observable<any> {
+    return this.httpClient.post(`${environment.URL_LOGIN}/auth`, { username, password });
   }
 
   logout(): void {

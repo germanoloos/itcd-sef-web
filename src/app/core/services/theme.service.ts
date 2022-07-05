@@ -31,7 +31,7 @@ export class ThemeService {
     return this.storageService.getItem(this.THEME_KEY);
   }
 
-  get eventEmitter():EventEmitter<boolean> {
+  get themeChangeEmitter():EventEmitter<boolean> {
     return this.themeEvent;
   }
 }

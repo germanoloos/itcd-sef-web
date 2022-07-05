@@ -1,0 +1,39 @@
+h4 {
+  margin-top: 96px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  color: #454a4d;
+}
+::ng-deep.dark-mode h4 {
+  color: #e6e6e6;
+}
+
+p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  color: #19a6ff;
+}
+
+button {
+  text-transform: uppercase;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #a3a5a7 !important;
+  height: 38px;
+  &:hover {
+    opacity: 0.85;
+    transition: 0.2s;
+  }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '@app/core/services/theme.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  darkMode = false;
+
+  constructor(private themeService: ThemeService) {
+  }
 
   ngOnInit(): void {
+    this.darkMode = this.themeService.isDarkTheme();
+    this.themeService.themeChangeEmitter.subscribe((darkMode: boolean) => {
+      this.darkMode = darkMode;
+    });
   }
 
 }

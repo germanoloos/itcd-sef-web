@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from '@app/core/services/theme.service';
+import { NavigationService } from '@app/core/services/navigation.service';
 
 @Component({
   selector: 'app-subheader',
@@ -7,14 +7,12 @@ import { ThemeService } from '@app/core/services/theme.service';
   styleUrls: ['./subheader.component.scss']
 })
 export class SubheaderComponent implements OnInit {
-
-
-  constructor() {
-
+  subItem = "";
+  constructor(private navigationService: NavigationService) {
+    this.navigationService.navigationEvent.subscribe((title: string) => {
+      this.subItem = title;
+    })
   }
-
   ngOnInit(): void {
-
   }
-
 }

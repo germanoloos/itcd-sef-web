@@ -10,4 +10,21 @@
   color: $text-subheader-dark;
   height: 85px;
   @extend .px-2;
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  .subtitle {
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+    margin-bottom: 0;
+  }
+  .sub-item {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin-left: 10px;
+  }
 }

@@ -2,37 +2,72 @@
 <div class="container">
   <div class="row" style="height: 80vh">
     <div class="col-md-12">
-      <div class="d-flex flex-row align-items-center h-100">
-        <div class="mx-auto">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-sm-7">
           <div class="signin-box">
-            <form [formGroup]="loginForm" class="p-3" (ngSubmit)="onSubmit()">
-              <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Nome</mat-label>
-                <input matInput formControlName="user"/>
-                <mat-error *ngIf="loginForm.get('user')?.invalid"
-                >O campo de nome do usuário é obrigatório</mat-error
-                >
-              </mat-form-field>
-              <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Senha</mat-label>
-                <input [type]="inputType" matInput formControlName="password"/>
-                <mat-error *ngIf="loginForm.get('password')?.invalid"
-                  >O campo de senha é obrigatório</mat-error
-                >
-              </mat-form-field>
-              <button
-                mat-raised-button
-                color="primary"
-                class="w-100 mt-3 mb-3"
-                type="submit"
+            <!-- Login com Gov.br -->
+            <div
+              *ngIf="!loginWithUser"
+              class="d-flex flex-column h-100 justify-content-center align-items-center mb-3"
+            >
+              <img
+                class="mb-3"
+                src="../../../../assets/img/gov.br.svg"
+                width="125px"
+                alt="gov.br"
+              />
+              <button class="entrar-com-gov-br">Entrar com gov.br</button>
+              <p class="login-info">
+                Clique para criar ou acessar sua conta gov.br
+              </p>
+              <a href="#" class="read-qr-code"
+                ><mat-icon class="me-3">qr_code_scanner</mat-icon
+                ><span>Ler QR code</span></a
               >
-                Entrar
-                <span
-                  *ngIf="loadingButton"
-                  class="spinner-border spinner-border-sm m-2"
-                ></span>
+              <button
+                mat-button
+                color="accent"
+                (click)="loginWithUser = !loginWithUser"
+              >
+                Entrar com usuário e senha
               </button>
-            </form>
+            </div>
+
+            <!-- Login com usuário e senha para desenvolvimento -->
+            <div *ngIf="loginWithUser" class="p-3 login-form">
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <mat-form-field class="w-100" appearance="fill">
+                  <mat-label>Nome</mat-label>
+                  <input matInput formControlName="username" />
+                  <mat-error *ngIf="loginForm.get('username')?.invalid"
+                    >O campo de nome do usuário é obrigatório</mat-error
+                  >
+                </mat-form-field>
+                <mat-form-field class="w-100" appearance="fill">
+                  <mat-label>Senha</mat-label>
+                  <input
+                    [type]="inputType"
+                    matInput
+                    formControlName="password"
+                  />
+                  <mat-error *ngIf="loginForm.get('password')?.invalid"
+                    >O campo de senha é obrigatório</mat-error
+                  >
+                </mat-form-field>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="w-100 mt-3 mb-3"
+                  type="submit"
+                >
+                  Entrar
+                  <span
+                    *ngIf="loadingButton"
+                    class="spinner-border spinner-border-sm m-2"
+                  ></span>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

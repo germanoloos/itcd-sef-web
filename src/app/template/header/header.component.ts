@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.setLogoByTheme(this.themeService.isDarkTheme());
-    this.themeService.eventEmitter.subscribe((darkMode: boolean) => this.setLogoByTheme(darkMode));
+    this.themeService.themeChangeEmitter.subscribe((darkMode: boolean) => this.setLogoByTheme(darkMode));
 
   }
 
