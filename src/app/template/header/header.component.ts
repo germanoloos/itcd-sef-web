@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.setLogoByTheme(this.themeService.isDarkTheme());
     this.themeService.themeChangeEmitter.subscribe((darkMode: boolean) => this.setLogoByTheme(darkMode));
-
   }
 
   setLogoByTheme(darkMode: boolean): void {
@@ -34,7 +33,7 @@ export class HeaderComponent implements OnInit {
     return this.authenticationService.isAuthenticated();
   }
 
-  getUserName(): string {
-    return "Mario";
+  getUserName(): string | undefined {
+    return this.authenticationService.currentUserValue?.user;
   }
 }

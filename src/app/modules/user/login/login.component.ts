@@ -23,15 +23,12 @@ export class LoginComponent implements OnInit, AfterViewChecked {
     private dialog: DialogService,
     private router: Router
   ) {
-    if (this.authenticationService.isAuthenticated()){
-      this.router.navigate(['/']);
-    }
   }
 
   ngAfterViewChecked(): void {
-    setTimeout(() =>
-      this.loading = false, 100
-    );
+    if (this.authenticationService.isAuthenticated()) {
+        this.router.navigate(['/']);
+      }
   }
 
   ngOnInit(): void {
@@ -42,7 +39,7 @@ export class LoginComponent implements OnInit, AfterViewChecked {
   }
 
   onSubmit(): void {
-    if (this.loginForm.invalid ) {
+    if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return
     }
@@ -50,14 +47,13 @@ export class LoginComponent implements OnInit, AfterViewChecked {
     this.loginForm.disable();
     this.loadingButton = true;
     this.authenticationService.login(
-      this.loginForm.get('user')?.value,
+      this.loginForm.get('username')?.value,
       this.loginForm.get('password')?.value).subscribe({
         next: (resp) => {
-          this.authenticationService.setToken(resp.token);
           this.router.navigate(['/']);
         },
         error: (error) => {
-          this.dialog.alert(error.error.message);
+          this.dialog.alert(error?.error?.message || error);
           this.loginForm.enable();
           this.loadingButton = false;
         }

@@ -14,7 +14,7 @@ RUN npm run build
 FROM nginx:latest
 
 
-COPY --from=build /usr/local/app/dist/itcd-front /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/itcd-sef-web /usr/share/nginx/html
 COPY --from=build /usr/local/app/config/default.conf /etc/nginx/conf.d
 
 

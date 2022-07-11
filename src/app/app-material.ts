@@ -33,6 +33,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
    imports: [
@@ -71,7 +72,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       ReactiveFormsModule,
       BrowserAnimationsModule,
       MatSelectModule,
-      MatFormFieldModule
+      MatFormFieldModule,
+      MatTreeModule
    ],
    exports: [
       MatButtonModule,
@@ -109,7 +111,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       ReactiveFormsModule,
       BrowserAnimationsModule,
       MatSelectModule,
-      MatFormFieldModule
+      MatFormFieldModule,
+      MatTreeModule
    ],
    providers: [
       MatDatepickerModule,

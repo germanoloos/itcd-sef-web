@@ -1,0 +1,144 @@
+<header>
+  <h4>Cadastrar Bens | Direitos | Dívidas</h4>
+  <button mat-raised-button color="primary" class="add-new">
+    <mat-icon>add</mat-icon>
+  </button>
+</header>
+<div class="itcd-form-container">
+  <mat-card>
+    <mat-card-title>
+      <div>Imóvel no exterior</div>
+      <button mat-raised-button color="primary" (click)="onSubmit()">
+        SALVAR
+      </button>
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="imovelExteriorForm" (ngSubmit)="onSubmit()">
+        <div class="d-flex flex-md-row flex-column">
+          <mat-radio-group
+            aria-label="Utilização do imóvel"
+            formControlName="utilizacaoDoImovel">
+            <mat-label>Utilização do imóvel</mat-label>
+            <mat-radio-button value="1">Residencial</mat-radio-button>
+            <mat-radio-button value="2">Não residencial</mat-radio-button>
+          </mat-radio-group>
+          <mat-radio-group
+            aria-label="Propriedade do bem"
+            formControlName="propriedadeDoBem">
+            <mat-label>Propriedade do bem</mat-label>
+            <mat-radio-button value="1">Comum</mat-radio-button>
+            <mat-radio-button value="2">Particular</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="row pt-4">
+          <mat-form-field
+            class="col-12 col-sm-6 col-md-3"
+            appearance="fill"
+            floatLabel="always">
+            <mat-label>Valor total</mat-label>
+            <input
+              matInput
+              required
+              placeholder="R$ 999.999.999,00"
+              currencyMask
+              formControlName="valorTotal" />
+            <mat-icon matSuffix>help_outline</mat-icon>
+          </mat-form-field>
+          <mat-form-field
+            class="col-12 col-sm-6 col-md-3"
+            appearance="fill"
+            floatLabel="always">
+            <mat-label>Data do valor declarado</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              placeholder="DD/MM/AAAA"
+              formControlName="dataValorTotal" />
+            <mat-datepicker-toggle
+              matPrefix
+              [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-icon matSuffix>help_outline</mat-icon>
+          </mat-form-field>
+          <mat-form-field
+            class="col-12 col-sm-6 col-md-3"
+            appearance="fill"
+            floatLabel="always">
+            <mat-label>Percentual de propriedade</mat-label>
+            <input
+              mask="percent"
+              suffix="%"
+              matInput
+              required
+              placeholder="99.999"
+              formControlName="percentual" />
+            <mat-icon matSuffix>help_outline</mat-icon>
+          </mat-form-field>
+        </div>
+        <div>
+          <p class="itcd-text-primary">Insira o título do anexo aqui</p>
+          <div>
+            <span *ngIf="f.anexo.value" class="remove-attachment"
+              >{{ f.anexo.value.name }}
+              <button
+                mat-icon-button
+                type="button"
+                (click)="f.anexo.setValue(null)">
+                <mat-icon>close</mat-icon>
+              </button></span
+            >
+            <button
+              mat-raised-button
+              color="primary"
+              class="add-attachment"
+              type="button"
+              (click)="fileInput.click()">
+              <mat-icon>attachment</mat-icon>ANEXAR DOCUMENTO
+              <input
+                #fileInput
+                type="file"
+                (change)="onFileInput($event)"
+                style="display: none" />
+            </button>
+
+            <button mat-icon-button class="button-form-icon">
+              <mat-icon>help_outline</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row pt-4">
+          <mat-form-field class="col-12 col-sm-6 col-md-3" appearance="fill">
+            <mat-label>País</mat-label>
+            <mat-select formControlName="pais">
+              <mat-option *ngFor="let pais of paises" [value]="pais">
+                {{ pais }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="col-12 col-sm-6 col-md-3" appearance="fill">
+            <mat-label>Código postal</mat-label>
+            <input matInput required formControlName="codigoPostal" />
+          </mat-form-field>
+        </div>
+        <div class="row pt-4">
+          <mat-form-field class="col-12 col-sm-6" appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input matInput required formControlName="cidade" />
+          </mat-form-field>
+          <mat-form-field class="col-12 col-sm-6" appearance="fill">
+            <mat-label>Estado/Província</mat-label>
+            <input matInput required formControlName="estado" />
+          </mat-form-field>
+        </div>
+        <div class="row pt-4">
+          <mat-form-field class="col-12 col-sm-6" appearance="fill">
+            <mat-label>Logradouro</mat-label>
+            <input matInput required formControlName="logradouro" />
+          </mat-form-field>
+        </div>
+        <!-- {{ bensDireitosDividasForm.value | json }} -->
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,5 +1,5 @@
 <div class="container h-100">
-  <div class="row">
+  <div class="row mb-5">
     <h4>Escolha o tipo de transmissão.</h4>
     <p>
       O prazo para envio da declaração é 180 dias. Após essa data, o
@@ -7,7 +7,7 @@
     </p>
 
     <div class="col-12 col-sm-8 mx-auto pt-4">
-      <button
+      <!-- <button
         mat-raised-button
         color="primary"
         type="button"
@@ -15,15 +15,16 @@
         routerLink="causa-mortis/dados-basicos"
       >
         CAUSA MORTIS
-      </button>
+      </button> -->
       <button
+        *ngFor="let tipo of tiposTransmissao"
         mat-raised-button
-        color="primary"
+        color="accent"
         type="button"
         class="w-100 mb-2"
+        (click)="redirect(tipo.id)">
+        {{ tipo.descricao }}</button
       >
-        Cessão de direitos hereditários
-      </button>
     </div>
   </div>
 </div>

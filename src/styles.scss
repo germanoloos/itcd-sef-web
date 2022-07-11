@@ -1,8 +1,7 @@
 @use "@angular/material" as mat;
-@import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~@angular/material/theming";
 @import "./app/core/scss/variables.scss";
-@import "./app/core/components/loading/loading.component.scss";
+@import "~bootstrap/scss/bootstrap.scss";
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -34,6 +33,7 @@ $itcd-sef-web-dark-theme: mat.define-dark-theme(
 
 .dark-mode {
   @include mat.all-component-themes($itcd-sef-web-dark-theme);
+  transition: 300ms;
 }
 
 $itcd-typography: mat.define-typography-config(
@@ -61,7 +61,6 @@ body {
 }
 
 #app-itcd {
-  height: 100%;
   color: #454a4d;
   background-color: $background-color-light !important;
   &.dark-mode {
@@ -74,24 +73,120 @@ a:link {
   text-decoration: none;
   color: white !important;
 }
+// ============================ ANGULAR MATERIAL CUSTOMIZATIONS
 
-// .mat-form-field-appearance-outline .mat-form-field-outline {
-//     background: white;
-//     border-radius: 10px;
-// }
-// .mat-form-field-appearance-outline .mat-form-field-infix {
-//     padding: 0.3em 0 1em 0;
-// }
+//========================= MAT - INPUT
+.mat-form-field-prefix,
+.mat-form-field-suffix {
+  color: #666666;
+}
 
-// .mat-raised-button {
-//     border-radius: 10px !important;
-// }
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 0px !important;
+}
 
-// .mat-form-field-outline-start {
-//     border-radius: 10px 0 0 10px !important;
-//     min-width: 28px !important;
-// }
+.dark-mode .mat-datepicker-toggle,
+.dark-mode .mat-datepicker-content .mat-calendar-next-button,
+.dark-mode .mat-datepicker-content .mat-calendar-previous-button {
+  color: #666666;
+}
+.dark-mode .mat-form-field-label {
+  color: #666;
+}
 
-// .mat-form-field-outline-end {
-//     border-radius: 0 10px 10px 0 !important;
-// }
+.dark-mode .mat-form-field.mat-focused .mat-form-field-label {
+  color: $primary-color-light;
+}
+.dark-mode .mat-focused .mat-form-field-required-marker {
+  color: $warn-color-dark;
+}
+.dark-mode .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #1a1a1a;
+}
+
+.mat-form-field-appearance-fill.ng-valid:not(.mat-focused) .mat-form-field-flex {
+  background-color: transparent;
+}
+
+// ============================ MAT BUTTONS
+.mat-raised-button:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+  font-size: 14px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+}
+.button-form-icon mat-icon {
+  color: #666;
+}
+
+// ================================ MAT-CARD
+.dark-mode {
+  mat-card {
+    mat-card-title {
+      background: linear-gradient(219.11deg, #262626 76.98%, #19a6ff 250.17%) !important;
+    }
+  }
+}
+mat-card {
+  mat-card-title {
+    @extend .d-flex;
+    @extend .justify-content-between;
+    border-radius: 6px 6px 0px 0px;
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 24px 43px;
+    background: linear-gradient(219.11deg, #ffffff 76.98%, #19a6ff 250.17%);
+    transition: opacity 0.15s linear;
+    border-bottom: 1px solid #332e30;
+  }
+  margin-top: 24px;
+  padding: 0 !important;
+  mat-card-content {
+    padding: 46px;
+  }
+}
+.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+
+.dark-mode .mat-card {
+  background: #262626;
+  // color: white;
+}
+
+@media (max-width: 500px) {
+  mat-card {
+    mat-card-title {
+      padding: 15px 15px;
+    }
+    margin-top: 24px;
+    padding: 0 !important;
+    mat-card-content {
+      padding: 16px;
+    }
+  }
+}
+
+// ======================================== MAT-RADIO-BUTTON
+.mat-radio-group {
+  position: relative;
+  padding-top: 15px;
+  font-size: 16px;
+  .mat-radio-button {
+    margin-top: 29px;
+    padding-right: 15px;
+  }
+  mat-label {
+    font-weight: 400;
+    position: absolute;
+  }
+}
+
+// ======================= Global classes for texts
+.itcd-text-primary {
+  color: $primary-color-light;
+}

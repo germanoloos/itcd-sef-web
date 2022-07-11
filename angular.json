@@ -35,7 +35,9 @@
               "src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -106,9 +108,24 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "itcd-sef-web"
+  "defaultProject": "itcd-sef-web",
+  "cli": {
+    "analytics": "b0627334-8f09-4647-b7fd-ca9ed77154ef",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  }
 }

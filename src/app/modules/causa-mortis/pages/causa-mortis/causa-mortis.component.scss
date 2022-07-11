@@ -1,0 +1,19 @@
+.itcd-container {
+  width: 100%;
+  min-height: calc(100vh - 253px );
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.itcd-sidenav {
+  padding: 20px;
+}
+
+::ng-deep.dark-mode .mat-drawer-container {
+  background-color: transparent;
+  color: white;
+}
+
+ng-component {
+  width: 100%;
+}
+

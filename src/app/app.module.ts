@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './app-material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthTokenHttpInterceptorProvider } from './core/interceptor/auth.interceptor';
 import { MatIconProvider } from './core/providers/icon.provider';
 import { SharedModule } from './core/shared.module';
 import { CausaMortisModule } from './modules/causa-mortis/causa-mortis.module';
@@ -31,10 +30,9 @@ import { SubheaderComponent } from './template/subheader/subheader.component';
     UserModule,
     SharedModule,
     HomeModule,
-    CausaMortisModule
+    CausaMortisModule,
   ],
   providers: [
-    AuthTokenHttpInterceptorProvider,
     OverlayModule
   ],
   bootstrap: [AppComponent]

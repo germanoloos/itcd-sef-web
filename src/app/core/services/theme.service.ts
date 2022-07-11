@@ -28,7 +28,8 @@ export class ThemeService {
   }
 
   isDarkTheme(): boolean {
-    return this.storageService.getItem(this.THEME_KEY);
+
+    return this.storageService.getItem(this.THEME_KEY) || false;
   }
 
   get themeChangeEmitter():EventEmitter<boolean> {

@@ -1,0 +1,19 @@
+<mat-drawer-container class="itcd-container" autosize>
+  <mat-drawer opened="true" #drawer class="itcd-sidenav" mode="side">
+    <div *ngFor="let item of nodeList" class="d-flex flex-column">
+      <button mat-button class="text-start" (click)="navigate(item)">
+        {{ item.name }}
+      </button>
+      <button
+        [hidden]="!item.expanded"
+        *ngFor="let child of item.children"
+        mat-button
+        class="text-start ms-2"
+        (click)="navigate(child)">
+        {{ child.name }}
+      </button>
+    </div>
+  </mat-drawer>
+
+  <router-outlet name="causa-mortis"></router-outlet>
+</mat-drawer-container>

@@ -2,13 +2,13 @@
 $background-color-light: #ffffff;
 $text-color-light: #ffffff;
 
-$primary-color-light: #4d4d4d;
+$primary-color-light: #19a6ff;
 $warn-color-light: #e60000;
 
-$accent-color-light: #19a6ff;
+$accent-color-light: #a3a5a7;
 
 $background-color-header-light: #e6e6e6;
-$background-color-subheader-light: #332E30;
+$background-color-subheader-light: #332e30;
 $text-header-light: #1a1a1a;
 $text-subheader-light: white;
 
@@ -119,13 +119,13 @@ $warn-palette-light: (
 $background-color-dark: #1a1a1a;
 $text-color-dark: #1a1a1a;
 
-$primary-color-dark: #4d4d4d;
+$primary-color-dark: #19a6ff;
 $warn-color-dark: #e60000;
 
-$accent-color-dark: #0971b3;
+$accent-color-dark: #4d4d4d;
 
-$background-color-header-dark: #332E30;
-$background-color-subheader-dark: #D9D9D9;
+$background-color-header-dark: #332e30;
+$background-color-subheader-dark: #d9d9d9;
 $text-header-dark: #e6e6e6;
 $text-subheader-dark: #666666;
 
@@ -166,8 +166,6 @@ $primary-palette-dark: (
         A700: white,
     ),
 );
-
-
 
 $accent-palette-dark: (
     50: $accent-color-dark,

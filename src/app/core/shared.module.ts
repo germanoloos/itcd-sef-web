@@ -8,26 +8,35 @@ import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confi
 import { DialogService } from './services/dialog.service';
 import { StorageService } from './services/storage.service';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from './interceptor/error.interceptor';
+import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
+import { TokenInterceptor } from './interceptor/token.interceptor';
 
 @NgModule({
-    declarations: [
-        AlertDialogComponent,
-        ConfirmationDialogComponent,
-        LoadingComponent,
-        ThemeToggleComponent
-    ],
-    imports: [
-        RouterModule,
-        BrowserAnimationsModule,
-        AngularMaterialModule
-    ],
-    exports: [
-        LoadingComponent,
-        ThemeToggleComponent
-    ],
-    providers: [
-        DialogService,
-        StorageService
-    ]
+  declarations: [
+    AlertDialogComponent,
+    ConfirmationDialogComponent,
+    LoadingComponent,
+    ThemeToggleComponent,
+  ],
+  imports: [
+    RouterModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    HttpClientModule,
+  ],
+  exports: [LoadingComponent, ThemeToggleComponent],
+  providers: [
+    DialogService,
+    StorageService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true,
+    },
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
